@@ -13,23 +13,23 @@ import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
-@Entity
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Builder
 public class Subreddit {
-
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = SEQUENCE)
     private Long id;
-    @NotBlank(message = "Community name si required")
+    @NotBlank(message = "Community name is required")
     private String name;
     @NotBlank(message = "Description is required")
     private String description;
     @OneToMany(fetch = LAZY)
-    private List<Post> Posts;
+    private List<Post> posts;
     private Instant createdDate;
     @ManyToOne(fetch = LAZY)
     private User user;

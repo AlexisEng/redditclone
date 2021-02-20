@@ -13,6 +13,7 @@ import java.time.Instant;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @Entity
@@ -22,7 +23,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = SEQUENCE)
     private Long id;
     @NotEmpty
     private String text;

@@ -12,9 +12,9 @@ import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Table(name = "token")
 public class VerificationToken {
 
@@ -25,6 +25,4 @@ public class VerificationToken {
     @OneToOne(fetch = LAZY)
     private User user;
     private Instant expiryDate;
-
-
 }

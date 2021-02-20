@@ -14,15 +14,15 @@ import javax.validation.constraints.NotEmpty;
 import java.time.Instant;
 
 import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class User {
-
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = SEQUENCE)
     private Long userId;
     @NotBlank(message = "Username is required")
     private String username;
@@ -33,5 +33,4 @@ public class User {
     private String email;
     private Instant created;
     private boolean enabled;
-
 }
